@@ -1,0 +1,49 @@
+{% extends "index.htm" %}
+{% load staticfiles %}
+{% block page-menu %}
+          <ul class="nav nav-sidebar">
+            <li ><a href="/index/">项目信息 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/device_list/">设备信息 <span class="sr-only">(current)</span></a></li>
+          </ul>
+{% endblock %}
+
+{% block page-content %}
+
+<br />
+<br />
+<hr />
+{% for d in devices %}
+设备名称：{{d.name}}
+<br />
+<hr />
+设备图片：<img src="{% static  d.deviceImage %}" />
+<br />
+<hr />
+设备类型：{{d.deviceType.name}}
+<br />
+<hr />
+设备型号：{{d.deviceModel}}
+<br />
+<hr />
+生产厂家：{{d.comp}}
+<br />
+<hr />
+联系电话：{{d.compTel}}
+<br />
+<hr />
+价格：{{d.price}}
+<br />
+<hr />
+性能参数：{{d.parameter}}
+<br />
+<hr />
+产品描述：{{d.description}}
+<br />
+<hr />
+其它：{{d.remark}}
+<br />
+<hr />
+
+{%endfor%}
+<button class="btn btn-lg btn-primary btn-block" onclick="javascript:window.location.href='/device_list/'" >返回</button>
+{%endblock%}

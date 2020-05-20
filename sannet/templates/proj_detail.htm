@@ -1,0 +1,29 @@
+{% extends "index.htm" %}
+{% load staticfiles %}
+{% block page-content %}
+{% for project in projects %}
+项目名称：{{project.pname}}
+<br />
+<hr />
+项目地点：{{project.position}}
+<br />
+<hr />
+项目单位：{{project.comp}}
+<br />
+<hr />
+启动时间：{{project.startTime}}
+<br />
+<hr />
+竣工时间：{{project.finishedTime}}
+<br />
+<hr />
+项目配置文件：<a href="{% static project.config %}">{{project.config}}</a>
+<br />
+<hr />
+项目描述：{{project.desc}}
+<br />
+<hr />
+{%endfor%}
+
+<button class="btn btn-lg btn-primary btn-block" onclick="javascript:window.location.href='/index/'" >返回</button>
+{%endblock%}

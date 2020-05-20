@@ -1,0 +1,41 @@
+{% extends "index.htm" %}
+{% block page-menu %}
+          <ul class="nav nav-sidebar">
+            <li ><a href="/index/">项目信息 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/device_list/">设备信息 <span class="sr-only">(current)</span></a></li>
+          </ul>
+{% endblock %}
+
+	{% block page-content %}
+          <h2 class="sub-header">设备信息</h2>
+          <div class="table-responsive" data-unuse="1">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>设备名称</th>
+                  <th>设备类型</th>
+                  <th>设备型号</th>
+                  <th>生产厂家</th>
+                  <th>客服电话</th>
+                  <th>价格</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for device in devices %}
+                <tr>
+                  <td>{{device.id}}</td>
+                  <td><a href="/device_detail/{{device.id}}" title="点击查看详情">{{device.name}}</a></td>
+                  <td>{{device.deviceType.name}}</td>
+                  <td>{{device.deviceModel}}</td>
+                  <td>{{device.comp}}</td>
+                  <td>{{device.compTel}}</td>
+                  <td>{{device.price}}</td>
+                </tr>
+ 			{%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {%endblock%}
